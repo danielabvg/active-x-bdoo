@@ -167,3 +167,24 @@ def consulta_compleja(root):
             resultados.append(usuario)
 
     return resultados
+
+# Mostar el historial completo de inscripciones de un usuario
+def historial_inscripciones(root, id_usuario):
+
+    usuario = root.usuarios.get(id_usuario)
+
+    if usuario is None:
+        return []
+
+    historial = []
+
+    for inscripcion in root.inscripciones.values():
+
+        if inscripcion.usuario.id_usuario == usuario.id_usuario:
+            historial.append(inscripcion)
+
+    return historial
+
+# Mostrar inscripciones activas    
+
+# Mostrar inscripciones canceladas
