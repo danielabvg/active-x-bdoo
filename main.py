@@ -19,6 +19,7 @@ from servicios.servicios import (
     eliminar_usuario
 )
 
+
 from consultas.consultas import (
     listar_usuarios,
     buscar_usuario,
@@ -34,7 +35,9 @@ from consultas.consultas import (
     clases_llenas,
     consulta_compleja,
     historial_inscripciones,
-    inscripciones_activas_usuario
+    inscripciones_activas_usuario,
+    inscripciones_canceladas_usuario,
+    cancelar_inscripcion
 )
 
 
@@ -320,6 +323,12 @@ for usuario in historial_inscripciones(root, "U001"):
 
 print("\nINSCRIPCIONES ACTIVAS")
 for usuario in inscripciones_activas_usuario(root, "U001"):
+    print(usuario)
+
+cancelar_inscripcion(root, "U001", "A002")
+
+print("\nINSCRIPCIONES CANCELADAS")
+for usuario in inscripciones_canceladas_usuario(root, "U001"):
     print(usuario)
 
 # ---------------------------------------
