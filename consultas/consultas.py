@@ -181,7 +181,13 @@ def historial_inscripciones(root, id_usuario):
     for inscripcion in root.inscripciones.values():
 
         if inscripcion.usuario.id_usuario == usuario.id_usuario:
-            historial.append(inscripcion)
+            historial.append({
+                "usuario": inscripcion.usuario.nombre,
+                "clase": inscripcion.clase.id_clase,
+                "actividad": inscripcion.clase.actividad.nombre,
+                "fecha": inscripcion.fecha_inscripcion,
+                "estado": inscripcion.estado
+            })
 
     return historial
 
