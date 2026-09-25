@@ -33,7 +33,8 @@ from consultas.consultas import (
     ingresos_por_actividad,
     clases_llenas,
     consulta_compleja,
-    historial_inscripciones
+    historial_inscripciones,
+    inscripciones_activas_usuario
 )
 
 
@@ -315,6 +316,10 @@ for usuario in consulta_compleja(root):
 
 print("\nHISTORIAL COMPLETO POR USUARIO")
 for usuario in historial_inscripciones(root, "U001"):
+    print(usuario)
+
+print("\nINSCRIPCIONES ACTIVAS")
+for usuario in inscripciones_activas_usuario(root, "U001"):
     print(usuario)
 
 # ---------------------------------------

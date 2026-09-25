@@ -191,6 +191,27 @@ def historial_inscripciones(root, id_usuario):
 
     return historial
 
-# Mostrar inscripciones activas    
+# Mostrar inscripciones activas  
+def inscripciones_activas_usuario(root, id_usuario):
+    usuario = root.usuarios.get(id_usuario)
+    
+    if usuario is None:
+        return []
+    
+    inscripciones_activas_usuario = []
+    
+    for inscripcion in root.inscripciones.values():
+    
+        if inscripcion.usuario.id_usuario == usuario.id_usuario and inscripcion.estado == "Activa":
+            inscripciones_activas_usuario.append({
+                "usuario": inscripcion.usuario.nombre,
+                "clase": inscripcion.clase.id_clase,
+                "actividad": inscripcion.clase.actividad.nombre,
+                "fecha": inscripcion.fecha_inscripcion,
+                "estado": inscripcion.estado
+                })            
+    
+        return inscripciones_activas_usuario
+  
 
 # Mostrar inscripciones canceladas
