@@ -212,7 +212,19 @@ def inscripciones_activas_usuario(root, id_usuario):
                 })            
     
         return inscripciones_activas_usuario
-  
+
+# Cancelar inscripcion
+def cancelar_inscripcion(root, id_usuario, id_inscripcion):
+        """ Logré corregir el error al llamar root.usuarios.get(id_usuario)
+            En lugar de eso, yo estaba haciendo root.inscripciones.get(id_usuario)
+        """
+        usuario = root.usuarios.get(id_usuario)
+        inscripcion = root.inscripciones.get(id_inscripcion)
+
+        if inscripcion is None and inscripcion.usuario.id_usuario == usuario.id_usuario:
+            return False
+
+        return inscripcion.cancelar()
 
 # Mostrar inscripciones canceladas
 def inscripciones_canceladas_usuario(root, id_usuario):
@@ -232,26 +244,6 @@ def inscripciones_canceladas_usuario(root, id_usuario):
                 "actividad": inscripcion.clase.actividad.nombre,
                 "fecha": inscripcion.fecha_inscripcion,
                 "estado": inscripcion.estado
-                })            
+                })  
         
-        return inscripciones_canceladas
-
-def cancelar_inscripcion(root, id_usuario, id_clase):
-    usuario = root.usuarios.get(id_usuario)
-
-    clase = root.clases.get(id_clase)
-
-    if usuario is None or clase is None:
-
-        return False
-
-    for inscripcion in root.inscripciones.values():
-
-        if (inscripcion.usuario.id_usuario == usuario.id_usuario and inscripcion.clase.id_clase == clase.id_clase
-            and inscripcion.esta_activa()):
-
-            inscripcion.cancelar()
-
-            return True
-
-    return False
+    return inscripciones_canceladas

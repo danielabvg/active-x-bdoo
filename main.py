@@ -38,7 +38,7 @@ from consultas.consultas import (
     inscripciones_activas_usuario,
     inscripciones_canceladas_usuario,
     cancelar_inscripcion
-)
+    )
 
 
 # ---------------------------------------
@@ -325,7 +325,8 @@ print("\nINSCRIPCIONES ACTIVAS")
 for usuario in inscripciones_activas_usuario(root, "U001"):
     print(usuario)
 
-cancelar_inscripcion(root, "U001", "A002")
+# Primero debo de cancelar una suscripción porque todas están activas
+cancelar_inscripcion(root, "U001", "I001")
 
 print("\nINSCRIPCIONES CANCELADAS")
 for usuario in inscripciones_canceladas_usuario(root, "U001"):
