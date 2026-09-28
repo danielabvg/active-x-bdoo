@@ -333,7 +333,7 @@ for registro in historial:
 print("\nINSCRIPCIONES ACTIVAS")
 inscripciones_activas = inscripciones_activas_usuario(root, "U001")
 
-for inscripciones in inscripciones_activas:
+for registro in inscripciones_activas:
     print("\n-----------------------------")
     print(f"Usuario:    {registro['usuario']}")
     print(f"Clase:      {registro['clase']}")
@@ -348,7 +348,7 @@ cancelar_inscripcion(root, "U001", "I001")
 print("\nINSCRIPCIONES CANCELADAS")
 inscripciones_canceladas = inscripciones_canceladas_usuario(root, "U001")
 
-for canceladas in inscripciones_canceladas:
+for registro in inscripciones_canceladas:
     print("\n-----------------------------")
     print(f"Usuario:    {registro['usuario']}")
     print(f"Clase:      {registro['clase']}")
