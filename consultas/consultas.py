@@ -179,3 +179,16 @@ def pagos_de_usuario(root, id_usuario):
 
     return pagos
 
+# 15. Calcular pagos pendientes de un usuario
+
+def total_pendiente_usuario(root, id_usuario):
+    total = 0
+
+    for pago in root.pagos.values():
+        if (
+            pago.usuario.id_usuario == id_usuario
+            and not pago.esta_pagado()
+        ):
+            total += pago.monto
+
+    return total
