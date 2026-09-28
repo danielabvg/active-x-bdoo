@@ -34,7 +34,8 @@ from consultas.consultas import (
     clases_llenas,
     consulta_compleja,
     pagos_de_usuario,
-    total_pendiente_usuario
+    total_pendiente_usuario,
+    resumen_financiero_usuarios
 )
 
 
@@ -322,6 +323,15 @@ for pago in pagos_de_usuario(root, "U001"):
 print("\nPAGO PENDIENTE DE U002")
 
 print(total_pendiente_usuario(root, "U002"))
+
+print("\nRESUMEN FINANCIERO DE USUARIOS")
+
+for usuario, pagado, pendiente in resumen_financiero_usuarios(root):
+    print(
+        usuario.nombre,
+        "- Pagado:", pagado,
+        "- Pendiente:", pendiente
+    )
 
 
 # ---------------------------------------

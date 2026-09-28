@@ -192,3 +192,28 @@ def total_pendiente_usuario(root, id_usuario):
             total += pago.monto
 
     return total
+
+# 16. Resumen financiero de usuarios
+
+def resumen_financiero_usuarios(root):
+    resultados = []
+
+    for usuario in root.usuarios.values():
+
+        pagado = 0
+        pendiente = 0
+
+        for pago in root.pagos.values():
+
+            if pago.usuario.id_usuario == usuario.id_usuario:
+
+                if pago.esta_pagado():
+                    pagado += pago.monto
+                else:
+                    pendiente += pago.monto
+
+        resultados.append(
+            (usuario, pagado, pendiente)
+        )
+
+    return resultados
