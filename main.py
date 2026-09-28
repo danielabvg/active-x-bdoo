@@ -318,19 +318,44 @@ for usuario in consulta_compleja(root):
     print(usuario)
 
 print("\nHISTORIAL COMPLETO POR USUARIO")
-for usuario in historial_inscripciones(root, "U001"):
-    print(usuario)
+historial = historial_inscripciones(root, "U001")
+
+for registro in historial:
+
+    print("\n-----------------------------")
+    print(f"Usuario:    {registro['usuario']}")
+    print(f"Clase:      {registro['clase']}")
+    print(f"Actividad:  {registro['actividad']}")
+    print(f"Fecha:      {registro['fecha']}")
+    print(f"Estado:     {registro['estado']}")
+    print("-----------------------------")
 
 print("\nINSCRIPCIONES ACTIVAS")
-for usuario in inscripciones_activas_usuario(root, "U001"):
-    print(usuario)
+inscripciones_activas = inscripciones_activas_usuario(root, "U001")
+
+for inscripciones in inscripciones_activas:
+    print("\n-----------------------------")
+    print(f"Usuario:    {registro['usuario']}")
+    print(f"Clase:      {registro['clase']}")
+    print(f"Actividad:  {registro['actividad']}")
+    print(f"Fecha:      {registro['fecha']}")
+    print(f"Estado:     {registro['estado']}")
+    print("-----------------------------")
 
 # Primero debo de cancelar una suscripción porque todas están activas
 cancelar_inscripcion(root, "U001", "I001")
 
 print("\nINSCRIPCIONES CANCELADAS")
-for usuario in inscripciones_canceladas_usuario(root, "U001"):
-    print(usuario)
+inscripciones_canceladas = inscripciones_canceladas_usuario(root, "U001")
+
+for canceladas in inscripciones_canceladas:
+    print("\n-----------------------------")
+    print(f"Usuario:    {registro['usuario']}")
+    print(f"Clase:      {registro['clase']}")
+    print(f"Actividad:  {registro['actividad']}")
+    print(f"Fecha:      {registro['fecha']}")
+    print(f"Estado:     {registro['estado']}")
+    print("-----------------------------")
 
 # ---------------------------------------
 # DELETE
