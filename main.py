@@ -34,6 +34,9 @@ from consultas.consultas import (
     ingresos_por_actividad,
     clases_llenas,
     consulta_compleja,
+    pagos_de_usuario,
+    total_pendiente_usuario,
+    resumen_financiero_usuarios,
     historial_inscripciones,
     inscripciones_activas_usuario,
     inscripciones_canceladas_usuario,
@@ -316,6 +319,24 @@ print("\nCONSULTA COMPLEJA")
 
 for usuario in consulta_compleja(root):
     print(usuario)
+
+print("\nPAGOS DEL USUARIO U001")
+
+for pago in pagos_de_usuario(root, "U001"):
+    print(pago.id_pago, "-", pago.monto, "-", pago.estado)
+
+print("\nPAGO PENDIENTE DE U002")
+
+print(total_pendiente_usuario(root, "U002"))
+
+print("\nRESUMEN FINANCIERO DE USUARIOS")
+
+for usuario, pagado, pendiente in resumen_financiero_usuarios(root):
+    print(
+        usuario.nombre,
+        "- Pagado:", pagado,
+        "- Pendiente:", pendiente
+    )
 
 print("\nHISTORIAL COMPLETO POR USUARIO")
 historial = historial_inscripciones(root, "U001")
