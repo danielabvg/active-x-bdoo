@@ -32,7 +32,8 @@ from consultas.consultas import (
     usuarios_pagos_pendientes,
     ingresos_por_actividad,
     clases_llenas,
-    consulta_compleja
+    consulta_compleja,
+    pagos_de_usuario
 )
 
 
@@ -311,6 +312,11 @@ print("\nCONSULTA COMPLEJA")
 
 for usuario in consulta_compleja(root):
     print(usuario)
+
+print("\nPAGOS DEL USUARIO U001")
+
+for pago in pagos_de_usuario(root, "U001"):
+    print(pago.id_pago, "-", pago.monto, "-", pago.estado)
 
 
 # ---------------------------------------

@@ -167,3 +167,15 @@ def consulta_compleja(root):
             resultados.append(usuario)
 
     return resultados
+
+# 14. Consultar pagos de un usuario
+
+def pagos_de_usuario(root, id_usuario):
+    pagos = []
+
+    for pago in root.pagos.values():
+        if pago.usuario.id_usuario == id_usuario:
+            pagos.append(pago)
+
+    return pagos
+
